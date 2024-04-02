@@ -1,0 +1,41 @@
+.timer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .timer-item span {
+    font-size: 36px;
+  }
+  
+  .timer-item p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .changing {
+    animation: fadeDown 1s ease;
+  }
+  
+  @keyframes fadeDown {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+  

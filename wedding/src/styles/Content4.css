@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Meri;
+    src: url(../Fonts/Merriweather-Italic.ttf);
+}
+
+@font-face {
+    font-family: Alge;
+    src: url(../Fonts/Alegreya-Italic.ttf);
+}
+    
+.content4 {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center; /* Располагаем содержимое по центру */
+  }
+  
+  .title4 {
+    font-size: 35px;
+    font-family: Alge;
+    margin-top: 0;
+  }
+  
+  .events {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Располагаем события по центру */
+  }
+  
+  .event {
+    margin-bottom: 20px;
+  }
+  
+  .time {
+    font-family: Meri;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .description {
+    margin-top: 5px; /* Небольшой отступ сверху */
+    font-size: 20px;
+  }
+  

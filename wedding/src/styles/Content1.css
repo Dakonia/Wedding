@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Alegreya;
+    src: url(../Fonts/Alegreya-Italic.ttf);
+}
+.image-container {
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Радиус закругления углов */
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .overlay-text {
+    font-family: Alegreya;
+    margin: 0;
+    color: white;
+    font-size: 39px; /* Размер текста, который можно настроить под ваши требования */
+  }
+  
+  .second-line {
+    margin-top: 10px; /* Расстояние между строками */
+  }
+  
+  .date-text {
+    margin: 0;
+    color: white;
+    font-size: 40px; /* Размер текста даты */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  
