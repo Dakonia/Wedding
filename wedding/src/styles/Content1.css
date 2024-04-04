@@ -32,7 +32,7 @@
   }
   
   .second-line {
-    margin-top: 10px; /* Расстояние между строками */
+    margin-top: 0px; /* Расстояние между строками */
   }
   
   .date-text {

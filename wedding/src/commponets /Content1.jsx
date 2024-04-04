@@ -10,7 +10,8 @@ const Content1 = () => {
         <div className="text-overlay">
           <div>
             <h2 className="overlay-text">Яна</h2>
-            <h2 className="overlay-text second-line">и Алексей</h2>
+            <h3 className='overlay-text'>и</h3>
+            <h2 className="overlay-text second-line">Алексей</h2>
           </div>
           <p className="date-text">08.07</p>
         </div>

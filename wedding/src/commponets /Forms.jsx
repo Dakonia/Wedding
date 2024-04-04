@@ -7,41 +7,36 @@ const Forms = () => {
     name: '',
     status: '',
     alcohol: [],
-    food: ''
+    food: []
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleAlcoholChange = (e) => {
-    const { value, checked } = e.target;
-    if (checked) {
-      setFormData(prevState => ({
-        ...prevState,
-        alcohol: [...prevState.alcohol, value]
-      }));
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox') {
+      if (checked) {
+        setFormData(prevState => ({
+          ...prevState,
+          [name]: [...prevState[name], value]
+        }));
+      } else {
+        setFormData(prevState => ({
+          ...prevState,
+          [name]: prevState[name].filter(item => item !== value)
+        }));
+      }
     } else {
       setFormData(prevState => ({
         ...prevState,
-        alcohol: prevState.alcohol.filter(item => item !== value)
+        [name]: value
       }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formDataToSend = {
-      ...formData,
-      alcohol: formData.alcohol.join(', ') // Преобразование массива в строку
-    };
-    console.log('Данные перед отправкой:', formDataToSend);
+    console.log('Данные перед отправкой:', formData);
     try {
-      await axios.post('http://localhost:8000/api/guests/', formDataToSend);
+      await axios.post('http://localhost:8000/api/guests/', formData);
       alert('Данные успешно отправлены на сервер!');
     } catch (error) {
       console.error('Ошибка при отправке данных на сервер:', error);
@@ -50,10 +45,10 @@ const Forms = () => {
   };
 
   return (
-    <div className="form-container"> {/* Добавляем класс для стилей */}
+    <div className="form-container">
       <h2>Пожалуйста, подтвердите свое присутствие</h2>
       <form onSubmit={handleSubmit}>
-        <div className="input-field"> {/* Добавляем класс для стилей */}
+        <div className="input-field">
           <input
             type="text"
             id="name"
@@ -64,56 +59,65 @@ const Forms = () => {
             required
           />
         </div>
-        <div>
+        <div className="input-field">
           <p>Присутствие?</p>
-          <label>
-            <input type="radio" name="status" value="Я приду" onChange={handleChange} />
-            Я приду
-          </label>
-          <label>
-            <input type="radio" name="status" value="Прийти не получится(" onChange={handleChange} />
-            Прийти не получится(
-          </label>
+          <div className="select-container">
+            <select name="status" onChange={handleChange} required>
+              <option value="">Выберите статус</option>
+              <option value="Я приду">Я приду</option>
+              <option value="Прийти не получится(">Прийти не получится(</option>
+            </select>
+          </div>
         </div>
-        <div>
+        <div className="input-field">
           <p>Предпочтения по напиткам:</p>
-          <label>
-            <input type="checkbox" name="alcohol" value="Шампанское" onChange={handleAlcoholChange} />
-            Шампанское
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Белое вино" onChange={handleAlcoholChange} />
-            Белое вино
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Красное вино" onChange={handleAlcoholChange} />
-            Красное вино
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Коньяк" onChange={handleAlcoholChange} />
-            Коньяк
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Водка" onChange={handleAlcoholChange} />
-            Водка
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Виски" onChange={handleAlcoholChange} />
-            Виски
-          </label>
-          <label>
-            <input type="checkbox" name="alcohol" value="Я не пью алкоголь" onChange={handleAlcoholChange} />
-            Я не пью алкоголь
-          </label>
-          
+          <div className="select-container">
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Шампанское"
+                checked={formData.alcohol.includes('Шампанское')}
+                onChange={handleChange}
+              />
+              Шампанское
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Шампанское"
+                checked={formData.alcohol.includes('Шампанское')}
+                onChange={handleChange}
+              />
+              Шампанское
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Белое вино"
+                checked={formData.alcohol.includes('Белое вино')}
+                onChange={handleChange}
+              />
+              Белое вино
+            </label>
+          </div>
         </div>
-        <div>
+        <div className="input-field">
           <p>Пожелание по еде:</p>
-          <select name="food" value={formData.food} onChange={handleChange}>
-            <option value="">Выберите</option>
-            <option value="Мясо">Мясо</option>
-            {/* Добавьте остальные варианты выбора по еде */}
-          </select>
+          <div className="select-container">
+            <label>
+              <input
+                type="checkbox"
+                name="food"
+                value="Мясо"
+                checked={formData.food.includes('Мясо')}
+                onChange={handleChange}
+              />
+              Мясо
+            </label>
+          </div>
         </div>
         <button type="submit">Отправить</button>
       </form>

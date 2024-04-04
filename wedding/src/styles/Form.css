@@ -4,34 +4,47 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .input-field {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .input-field input {
+}
+
+.input-field input[type="text"] {
     width: 90%;
     padding: 10px;
     border: none;
     border-bottom: 1px solid #ccc;
     outline: none;
+    font-size: 20px;
+    background: none; 
+}
+.input-field {
+    font-size: 35px;
+    text-align: center;
+    
+}
+
+.input-field label {
+    margin-bottom: 5px; /* Отступ между меткой и элементами выбора */
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.select-container label {
+    margin-bottom: 35px;
+    margin-left: 0; /* Установим отступ слева в 0 */
+    text-align: left;
+    font-size: 23px;
+}
+
+.select-container select {
+    width: calc(100% - 20px); /* Ширина с учетом отступов */
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
     font-size: 16px;
-  }
-  
-  .input-field label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 10px;
-    color: #aaa;
-    transition: all 0.3s ease;
-  }
-  
-  .input-field input:focus + label,
-  .input-field input:not(:placeholder-shown) + label {
-    top: 0;
-    font-size: 14px;
-    color: #666;
-  }
+    background-color: #f9f9f9; /* Цвет фона */
+}
