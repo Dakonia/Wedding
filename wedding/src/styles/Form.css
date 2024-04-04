@@ -1,9 +1,18 @@
+@font-face {
+    font-family: Alge;
+    src: url(../Fonts/Alegreya-Italic.ttf);
+}
 .form-container {
     margin-top: 30px;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.form-container h2{
+    font-family: Alge;
+    font-size: 35px;
+    text-align: center;
 }
 
 .input-field input[type="text"] {
@@ -48,3 +57,90 @@
     font-size: 16px;
     background-color: #f9f9f9; /* Цвет фона */
 }
+
+.select-container input[type="checkbox"] {
+    transform: scale(1.5); /* Увеличим размер чекбокса */
+    margin-right: 30px;
+  }
+
+.select-container input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 30px;
+} 
+
+
+
+/* Всплывающее модальное окно */
+.modal {
+    position: fixed; /* Фиксированное положение */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Очень высокий z-index, чтобы модальное окно было поверх всего */
+  }
+  
+  /* Содержимое модального окна */
+  .modal-content {
+    font-size: 30px;
+    background-image: url(../media/ring.jpg);
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень */
+    position: relative;
+    width: 400px; 
+    max-width: 80%; /* Максимальная ширина */
+    max-height: 80%; /* Максимальная высота */
+    height: 300px;
+     overflow: auto; /* Добавляем прокрутку, если содержимое не помещается */
+    text-align: left; /* Выравнивание текста по центру */
+  }
+  
+  /* Кнопка для закрытия модального окна */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Стили для анимации закрытия модального окна */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .close:hover {
+    color: red; /* Изменение цвета при наведении */
+  }
+  
+  /* Анимация закрытия */
+  .fadeOut {
+    animation: fadeOut 0.5s;
+  }
+
+  button[type="submit"] {
+    margin-right: 50px;
+    background-color: #4CAF50; /* Зеленый цвет кнопки */
+    color: white; /* Белый цвет текста */
+    padding: 15px 20px; /* Поля вокруг текста */
+    border: none; /* Убираем границу */
+    border-radius: 20px; /* Закругляем углы */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    font-size: 20px; /* Размер текста */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049; /* Изменяем цвет кнопки при наведении */
+  }
+  

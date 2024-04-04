@@ -10,6 +10,8 @@ const Forms = () => {
     food: []
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === 'checkbox') {
@@ -34,10 +36,16 @@ const Forms = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Данные перед отправкой:', formData);
+    // Преобразование массивов в строки
+    const formDataToSend = {
+      ...formData,
+      alcohol: formData.alcohol.join(', '), // Преобразование массива в строку, разделенную запятыми
+      food: formData.food.join(', ') // Преобразование массива в строку, разделенную запятыми
+    };
+    console.log('Данные перед отправкой:', formDataToSend);
     try {
-      await axios.post('http://localhost:8000/api/guests/', formData);
-      alert('Данные успешно отправлены на сервер!');
+      await axios.post('http://localhost:8000/api/guests/', formDataToSend);
+      setShowModal(true);
     } catch (error) {
       console.error('Ошибка при отправке данных на сервер:', error);
       alert('Произошла ошибка при отправке данных на сервер!');
@@ -60,15 +68,32 @@ const Forms = () => {
           />
         </div>
         <div className="input-field">
-          <p>Присутствие?</p>
-          <div className="select-container">
-            <select name="status" onChange={handleChange} required>
-              <option value="">Выберите статус</option>
-              <option value="Я приду">Я приду</option>
-              <option value="Прийти не получится(">Прийти не получится(</option>
-            </select>
-          </div>
-        </div>
+  <p>Присутствие?</p>
+  <div className="select-container">
+    <label>
+      <input
+        type="radio"
+        name="status"
+        value="Я приду"
+        checked={formData.status === 'Я приду'}
+        onChange={handleChange}
+        required
+      />
+      Я приду
+    </label>
+    <label>
+      <input
+        type="radio"
+        name="status"
+        value="Прийти не получится("
+        checked={formData.status === 'Прийти не получится('}
+        onChange={handleChange}
+        required
+      />
+      Прийти не получится(
+    </label>
+  </div>
+</div>
         <div className="input-field">
           <p>Предпочтения по напиткам:</p>
           <div className="select-container">
@@ -86,11 +111,11 @@ const Forms = () => {
               <input
                 type="checkbox"
                 name="alcohol"
-                value="Шампанское"
-                checked={formData.alcohol.includes('Шампанское')}
+                value="Красное вино"
+                checked={formData.alcohol.includes('Красное вино')}
                 onChange={handleChange}
               />
-              Шампанское
+              Красное вино 
             </label>
             <label>
               <input
@@ -117,10 +142,30 @@ const Forms = () => {
               />
               Мясо
             </label>
+            <label>
+              <input
+                type="checkbox"
+                name="food"
+                value="Рыба"
+                checked={formData.food.includes('Рыба')}
+                onChange={handleChange}
+              />
+              Рыба
+            </label>
           </div>
         </div>
         <button type="submit">Отправить</button>
       </form>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
+            <p>Ваши данные отправлены</p> 
+            <p>Ждем</p>
+            <p>08.07.2024</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
