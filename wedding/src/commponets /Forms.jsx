@@ -127,6 +127,46 @@ const Forms = () => {
               />
               Белое вино
             </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Коньяк"
+                checked={formData.alcohol.includes('Коньяк')}
+                onChange={handleChange}
+              />
+              Коньяк
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Водка"
+                checked={formData.alcohol.includes('Водка')}
+                onChange={handleChange}
+              />
+              Водка
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Виски"
+                checked={formData.alcohol.includes('Виски')}
+                onChange={handleChange}
+              />
+              Виски
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="alcohol"
+                value="Я не пью алкоголь"
+                checked={formData.alcohol.includes('Я не пью алкоголь')}
+                onChange={handleChange}
+              />
+              Я не пью алкоголь
+            </label>
           </div>
         </div>
         <div className="input-field">

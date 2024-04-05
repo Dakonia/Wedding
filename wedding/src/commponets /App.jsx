@@ -1,12 +1,18 @@
+// App.jsx
 import React from 'react';
-import Main from './Main'; 
-import '../styles/Style.css'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './Main';
+import Info from './Info';
 
 const App = () => {
   return (
     <div className="app">
-      <Main />
+      <Router>
+        <Routes>
+          <Route path="/info" element={<Info />} />
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </Router>
     </div>
   );
 };

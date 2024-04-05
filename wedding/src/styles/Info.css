@@ -1,0 +1,26 @@
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .guest-info {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .guest-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .guest-info p {
+    margin: 5px 0;
+    color: #666;
+  }
+  

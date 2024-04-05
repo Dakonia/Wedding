@@ -128,8 +128,14 @@
     animation: fadeOut 0.5s;
   }
 
-  button[type="submit"] {
-    margin-right: 50px;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .custom-button {
     background-color: #4CAF50; /* Зеленый цвет кнопки */
     color: white; /* Белый цвет текста */
     padding: 15px 20px; /* Поля вокруг текста */
@@ -140,7 +146,4 @@
     transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
   }
   
-  button[type="submit"]:hover {
-    background-color: #45a049; /* Изменяем цвет кнопки при наведении */
-  }
   
