@@ -39,12 +39,12 @@ const Forms = () => {
     // Преобразование массивов в строки
     const formDataToSend = {
       ...formData,
-      alcohol: formData.alcohol.join(', '), // Преобразование массива в строку, разделенную запятыми
-      food: formData.food.join(', ') // Преобразование массива в строку, разделенную запятыми
+      alcohol: formData.alcohol.join(', '), 
+      food: formData.food.join(', ') 
     };
     console.log('Данные перед отправкой:', formDataToSend);
     try {
-      await axios.post('http://localhost:8000/api/guests/', formDataToSend);
+      await axios.post('http://wedding-info.tw1.ru/api/guests/', formDataToSend);
       setShowModal(true);
     } catch (error) {
       console.error('Ошибка при отправке данных на сервер:', error);
@@ -194,7 +194,9 @@ const Forms = () => {
             </label>
           </div>
         </div>
-        <button type="submit">Отправить</button>
+        <div className="container">
+          <button type="submit" className="custom-button">Отправить</button>  
+          </div>
       </form>
       {showModal && (
         <div className="modal">

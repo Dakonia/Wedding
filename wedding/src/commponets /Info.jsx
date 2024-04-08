@@ -10,7 +10,7 @@ const Info = () => {
     // Функция для загрузки данных о гостях с сервера
     const fetchGuestInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/guests/');
+        const response = await axios.get('http://wedding-info.tw1.ru/api/guests/');
         setGuestInfo(response.data); // Устанавливаем полученные данные в состояние
       } catch (error) {
         console.error('Ошибка при загрузке данных о гостях:', error);

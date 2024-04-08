@@ -1,0 +1,24 @@
+/* Location.css */
+.location {
+    margin-top: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+.location img {
+    width: calc(100% - 20px); /* Уменьшаем ширину изображения на 20px относительно контейнера */
+    height: auto;
+    border-radius: 20px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Alge;
+    src: url(../Fonts/Alegreya-Italic.ttf);
+}
+.Before {
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-family: Alge;
+}
